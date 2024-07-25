@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/DOA/CandidatRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/DOA/DiplomeRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/DOA/NiveauRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/DOA/SessionRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/DOA/SpecialiteRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/DOA/UtilisateurRepository.php" dialect="GenericSQL" />
+  </component>
+</project>
