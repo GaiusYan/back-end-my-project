@@ -62,6 +62,5 @@ $anneeService = new AnneeService();
     }
 
     if ($requesMethod == 'GET' and  explode('/', $requestUri)[4]=='annee-scolaires') {
-
         echo json_encode($anneeService->getAnnees());
     }

@@ -61,3 +61,12 @@ $candidatService = new CandidatService();
 
          $candidatService->getCandidat(explode('/', $requestUri)[5]);
     }
+
+
+    //accepter candidature
+    if($requesMethod == 'POST' and explode('/', $requestUri)[4] == 'acceptation-candidature') {
+        $acceptation = json_decode(file_get_contents('php://input'), true);
+
+        $id = explode('/', $requestUri)[5];
+        $candidatService->acceptCandidature($id);
+    }
