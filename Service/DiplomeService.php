@@ -12,4 +12,10 @@ class DiplomeService
         $diplomeRespository = new DiplomeRepository();
         return $diplomeRespository->findAll();
     }
+
+
+    public function getDiplomeById($diplomeId){
+        $diplomeRespository = new DiplomeRepository();
+        return $diplomeRespository->findById($diplomeId);
+    }
 }

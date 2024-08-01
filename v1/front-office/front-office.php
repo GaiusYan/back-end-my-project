@@ -69,7 +69,6 @@ require '../../model/Response.php';
 
         $candidatService->envoyerCandidature($candidat);
         //var_dump($candidat);
-
-
+        
     }
 

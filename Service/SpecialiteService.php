@@ -12,4 +12,9 @@ class SpecialiteService
         $specialiteRepository = new SpecialiteRepository();
         return $specialiteRepository->findAll();
     }
+
+    public function getSpecialite($id){
+        $specialiteRepository = new SpecialiteRepository();
+        return $specialiteRepository->findById($id);
+    }
 }

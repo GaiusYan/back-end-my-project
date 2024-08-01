@@ -38,7 +38,11 @@ class DiplomeRepository implements dao
 
     public function findById($id)
     {
-        // TODO: Implement findById() method.
+        $connection = new Connection();
+        $response = $connection->connect();
+        $query = $response -> prepare("select * from diplome where diplCode =:id");
+        $query-> execute(["id" => $id]);
+        return $query-> fetchAll(PDO::FETCH_OBJ);
     }
 
     public function findAllBy($field, $value)

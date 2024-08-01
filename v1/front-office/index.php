@@ -29,17 +29,39 @@ $anneeService = new AnneeService();
 
 
     if ($requesMethod == 'GET' and  explode('/', $requestUri)[4]=='niveaux') {
-        echo json_encode($niveauService->getNiveaux());
+
+        if(explode('/', $requestUri)[5] != null ) {
+            $id = explode('/', $requestUri)[5];
+            echo json_encode($niveauService->getNiveauById($id));
+        }else {
+            echo json_encode($niveauService->getNiveaux());
+        }
+
     }
 
     if ($requesMethod == 'GET' and  explode('/', $requestUri)[4]=='diplomes') {
-        echo json_encode($diplomeService->getDiplomes());
+        if(explode('/', $requestUri)[5] != null ) {
+            $id = explode('/', $requestUri)[5];
+            echo json_encode($diplomeService->getDiplomeById($id));
+        }else {
+            echo json_encode($diplomeService->getDiplomes());
+        }
+
     }
 
     if ($requesMethod == 'GET' and  explode('/', $requestUri)[4]=='specialites') {
-        echo json_encode($specialiteService->getSpecialites());
+
+        if(explode('/', $requestUri)[5] != null ) {
+            $id = explode('/', $requestUri)[5];
+            echo json_encode($specialiteService->getSpecialite($id));
+        }else {
+            echo json_encode($specialiteService->getSpecialites());
+        }
+
+
     }
 
     if ($requesMethod == 'GET' and  explode('/', $requestUri)[4]=='annee-scolaires') {
-    echo json_encode($anneeService->getAnnees());
+
+        echo json_encode($anneeService->getAnnees());
     }

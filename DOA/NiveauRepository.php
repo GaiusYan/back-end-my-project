@@ -35,12 +35,16 @@ class NiveauRepository implements dao
 
     public function find($id)
     {
-        // TODO: Implement find() method.
+        // TODO: Implement findAllBy() method.
     }
 
     public function findById($id)
     {
-        // TODO: Implement findById() method.
+        $connection = new Connection();
+        $response = $connection->connect();
+        $query = $response -> prepare("select * from niveau where nivId =:id");
+        $query-> execute(["id" => $id]);
+        return $query-> fetchAll(PDO::FETCH_OBJ);
     }
 
     public function findAllBy($field, $value)

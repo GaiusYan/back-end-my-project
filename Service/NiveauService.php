@@ -14,4 +14,8 @@ class NiveauService
         return $niveauRepository->findAll();
     }
 
+    public function getNiveauById($id){
+        $niveauRepository = new NiveauRepository();
+        return $niveauRepository->findById($id);
+    }
 }

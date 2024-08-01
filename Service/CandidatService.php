@@ -61,4 +61,20 @@ class CandidatService
 
     }
 
+    public function getDemande($status){
+        $candidatRepository = new CandidatRepository();
+        return $candidatRepository->findByStatus($status);
+    }
+
+    public function getCandidat($id){
+        $candidatRepository = new CandidatRepository();
+        $candidatExist = $candidatRepository->findById($id);
+
+        if (count($candidatExist) > 0){
+             echo json_encode($candidatExist);
+        }else{
+            echo json_encode(['status'=>'404','information'=>'Cette candidature n\'existe pas']);
+        }
+    }
+
 }
