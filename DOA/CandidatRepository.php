@@ -61,7 +61,7 @@ class CandidatRepository implements dao
 
     public function find($id)
     {
-
+        echo 'bonjour tout le monde';
     }
 
     public function findById($id)
