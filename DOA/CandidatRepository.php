@@ -73,6 +73,14 @@ class CandidatRepository implements dao
         return $query-> fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function findByStatus($status){
+        $connection = new Connection();
+        $response = $connection->connect();
+        $query = $response -> prepare("select * from candidat where statut =:statut");
+        $query-> execute(["statut" => $status]);
+        return $query-> fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function findAllBy($field, $value)
     {
         // TODO: Implement findAllBy() method.
