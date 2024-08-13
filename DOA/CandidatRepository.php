@@ -115,11 +115,11 @@ class CandidatRepository implements dao
     }
 
 
-    public function updateStatus($id, $statut){
+    public function updateStatus($id, $statut): bool
+    {
         $connection = new Connection();
         $response = $connection->connect();
         $query = $response -> prepare("update candidat set statut =:statut where id =:id");
         return $query-> execute(["statut" => $statut, "id" => $id]);
-
     }
 }

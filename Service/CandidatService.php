@@ -91,4 +91,31 @@ class CandidatService
         }
     }
 
+
+    public function refuserCandidature($id){
+        $candidatRepository = new CandidatRepository();
+        $candidatExist = $candidatRepository->findById($id);
+
+        if(count($candidatExist) > 0){
+            $status = -1;
+            $candidatRepository->updateStatus($id,$status);
+            echo json_encode(['status' => '200','title' => 'Information','Ok' =>'Candidature acceptée avec succes']);
+        }else{
+            echo json_encode(['status'=>'404','information'=>'Cette candidature n\'existe pas']);
+        }
+    }
+
+
+    public function initialiserCandidature($id){
+        $candidatRepository = new CandidatRepository();
+        $candidatExist = $candidatRepository->findById($id);
+
+        if(count($candidatExist) > 0){
+            $status = 0;
+            $candidatRepository->updateStatus($id,$status);
+            echo json_encode(['status' => '200','title' => 'Information','Ok' =>'Candidature acceptée avec succes']);
+        }else{
+            echo json_encode(['status'=>'404','information'=>'Cette candidature n\'existe pas']);
+        }
+    }
 }

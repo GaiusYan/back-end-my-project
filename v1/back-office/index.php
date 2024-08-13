@@ -70,3 +70,30 @@ $candidatService = new CandidatService();
         $id = explode('/', $requestUri)[5];
         $candidatService->acceptCandidature($id);
     }
+
+
+    //refuser candidature
+    if($requesMethod == 'POST' and explode('/', $requestUri)[4] == 'refuser-candidature') {
+        $acceptation = json_decode(file_get_contents('php://input'), true);
+
+        $id = explode('/', $requestUri)[5];
+        $candidatService->refuserCandidature($id);
+    }
+
+
+
+    //canditures acceptées
+    if($requesMethod=='POST' and file_get_contents('php://input') !== null and explode('/', $requestUri)[4] == 'candidature-accepter') {
+
+        $information =  json_decode(file_get_contents('php://input'),true);
+        echo json_encode($candidatService->getDemande(1));
+    }
+
+
+    //canditures refusées
+    if($requesMethod=='POST' and file_get_contents('php://input') !== null and explode('/', $requestUri)[4] == 'candidature-refuser') {
+
+        $information =  json_decode(file_get_contents('php://input'),true);
+        echo json_encode($candidatService->getDemande(-1));
+    }
+    
