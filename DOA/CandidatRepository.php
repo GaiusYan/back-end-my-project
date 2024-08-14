@@ -122,4 +122,27 @@ class CandidatRepository implements dao
         $query = $response -> prepare("update candidat set statut =:statut where id =:id");
         return $query-> execute(["statut" => $statut, "id" => $id]);
     }
+
+    public function countCandidatByStatus($status): int
+    {
+
+        $connection = new Connection();
+        $response = $connection->connect();
+        $query = $response->prepare("select count(id) from candidat where statut =:statut");
+        $query-> execute(["statut" => $status]);
+        return $query-> fetchColumn();
+    }
+
+
+    public function countAllByStatus(): int
+    {
+
+        $connection = new Connection();
+        $response = $connection->connect();
+        $query = $response->prepare("select count(id) from candidat");
+        $query-> execute();
+        return $query-> fetchColumn();
+    }
+
+
 }

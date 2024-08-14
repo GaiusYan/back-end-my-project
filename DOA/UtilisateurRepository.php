@@ -33,9 +33,12 @@ class UtilisateurRepository implements dao
         // TODO: Implement find() method.
     }
 
-    public function findById($id)
+    public function findById($id): bool
     {
-        // TODO: Implement findById() method.
+        $connection = new Connection();
+        $response = $connection->connect();
+        $query = $response->prepare("SELECT * FROM utilisateur WHERE id = :id");
+        return $query->execute([":id" => $id]);
     }
 
     public function findAllBy($field, $value)

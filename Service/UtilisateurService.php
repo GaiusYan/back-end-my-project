@@ -57,4 +57,11 @@ class UtilisateurService
 
     }
 
+
+    public function getUserById($id)
+    {
+        $userRepository = new UtilisateurRepository();
+        $userRepository->findById($id);
+    }
+
 }

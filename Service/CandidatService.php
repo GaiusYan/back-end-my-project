@@ -118,4 +118,25 @@ class CandidatService
             echo json_encode(['status'=>'404','information'=>'Cette candidature n\'existe pas']);
         }
     }
+
+
+    public function countCandidature($status)
+    {
+
+        $candidatRepository = new CandidatRepository();
+        return $candidatRepository->countCandidatByStatus($status);
+
+    }
+
+
+    public function countAllCandidature(){
+        $candidatRepository = new CandidatRepository();
+        return $candidatRepository->countAllByStatus();
+    }
+
+
+    public function getCandidatures(){
+        $candidatRepository = new CandidatRepository();
+        return $candidatRepository->findAll();
+    }
 }

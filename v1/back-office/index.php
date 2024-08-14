@@ -39,7 +39,6 @@ $candidatService = new CandidatService();
     }
 
     //autorization
-
     if ($requesMethod == 'POST' and explode('/', $requestUri)[4] == 'authorization') {
 
         $authorization = json_decode(file_get_contents('php://input'), true);
@@ -81,7 +80,6 @@ $candidatService = new CandidatService();
     }
 
 
-
     //canditures acceptées
     if($requesMethod=='POST' and file_get_contents('php://input') !== null and explode('/', $requestUri)[4] == 'candidature-accepter') {
 
@@ -96,4 +94,6 @@ $candidatService = new CandidatService();
         $information =  json_decode(file_get_contents('php://input'),true);
         echo json_encode($candidatService->getDemande(-1));
     }
-    
+
+
+    //Dashboard information
