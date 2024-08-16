@@ -5,7 +5,7 @@ namespace DOA;
 use Connection\Connection;
 use PDO;
 
-class UtilisateurRepository implements dao
+class RoleRepository implements dao
 {
 
     public function create($entity)
@@ -33,13 +33,13 @@ class UtilisateurRepository implements dao
         // TODO: Implement find() method.
     }
 
-    public function findById($id): array
+    public function findById($id)
     {
         $connection = new Connection();
         $response = $connection->connect();
-        $query = $response->prepare("SELECT * FROM utilisateur WHERE id = :id");
-        $query->execute(["id" => $id]);
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        $query = $response -> prepare("SELECT * FROM role WHERE rolId = :id");
+        $query -> execute(["id"=>$id]);
+        return $query-> fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function findAllBy($field, $value)
@@ -55,13 +55,5 @@ class UtilisateurRepository implements dao
     public function findAllByArrayArray($field, $value)
     {
         // TODO: Implement findAllByArrayArray() method.
-    }
-
-    public function findByUsernameAndPassword($username, $password){
-        $connection = new Connection();
-        $response = $connection->connect();
-        $query = $response->prepare("select * from utilisateur where username = :username and password = :password");
-        $query->execute(["username" => $username, "password" => $password]);
-        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }

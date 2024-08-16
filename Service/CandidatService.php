@@ -120,12 +120,10 @@ class CandidatService
     }
 
 
-    public function countCandidature($status)
+    public function countCandidature($status): int
     {
-
         $candidatRepository = new CandidatRepository();
         return $candidatRepository->countCandidatByStatus($status);
-
     }
 
 

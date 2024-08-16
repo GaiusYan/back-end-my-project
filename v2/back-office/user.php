@@ -23,6 +23,11 @@ $requesMethod = $_SERVER['REQUEST_METHOD'];
 $requestUri = $_SERVER['REQUEST_URI'];
 $utilisateurService = new UtilisateurService();
 
+    echo 'user';
+    if($requesMethod=='GET' and file_get_contents('php://input') !== null) {
+
+
+    }
 
 
 

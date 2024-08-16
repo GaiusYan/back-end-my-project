@@ -11,6 +11,8 @@ require '../../Service/SessionService.php';
 class UtilisateurService
 {
 
+
+
     public function getUser($utilisateur){
 
         $utilisateurRepository = new UtilisateurRepository();
@@ -58,10 +60,10 @@ class UtilisateurService
     }
 
 
-    public function getUserById($id)
+    public function getUserById($id): array
     {
         $userRepository = new UtilisateurRepository();
-        $userRepository->findById($id);
+        return $userRepository->findById($id);
     }
 
 }
